@@ -2,7 +2,7 @@
 /**
  * Main Loader.
  *
- * @package sa-dynamic_discount_plugin
+ * @package dynamic_discount_plugin
  */
 
 if ( ! defined( 'ABSPATH' ) ) 
@@ -30,7 +30,9 @@ if ( ! class_exists( 'SA_Loader' ) )
         {
             include_once 'class-ddp-metabox.php';
 		}
-        
+
+        /** Include Scripts. */
+
         public function ddp_scripts() 
         {
             wp_enqueue_script('manual_js',  plugin_dir_url( __DIR__ ). 'assets/js/manual.js',   array('jquery') , wp_rand() );

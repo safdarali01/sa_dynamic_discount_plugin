@@ -20,7 +20,7 @@ class DDP_metabox
 		add_filter( 'woocommerce_before_calculate_totals', array($this, 'DDP_show_price_cart' ));
 	}
 	
-	/** Dynamic Discount Filed Show. */
+	/** Dynamic Discount Filed & Checkbox Show. */
 
 	public function DDP_show_field () 
     {
@@ -33,13 +33,13 @@ class DDP_metabox
 				)
 			);
 		woocommerce_wp_text_input(
-			array(
-				'custom_attributes' => array( 
+			array('custom_attributes' => 
+			array( 
 					'step' => 'any',
 					'min' => '0',
 					'max' => '100',
 					'required' => true,
-					),
+				),
 				'type' => 'number',
 				'id' => 'dynamic_discount_field',
 				'label' => __('Discount: '),
@@ -73,8 +73,8 @@ class DDP_metabox
 		{
 			$productname = wc_get_product( $post->ID );
 			$discount = get_post_meta( $post->ID, 'dynamic_discount_field', true );
-			$sale_price = $productname->get_regular_price();
-			$price = $sale_price * ((100 - $discount)/ 100) ;
+			$regular_price = $productname->get_regular_price();
+			$price = $regular_price * ((100 - $discount)/ 100) ;
 		}
 		return $price;
 	}

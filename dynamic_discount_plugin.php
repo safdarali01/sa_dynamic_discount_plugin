@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name: SADynamicDiscountPlugin
+ * Plugin Name: DynamicDiscountPlugin
  * Description: Made for Safdar Ali.
  * Version: 1.0
  * Author: Safdar
